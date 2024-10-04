@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Fraud Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>Blockchain Fraud Detection</h1>
+    <form action="/predict" method="POST">
+        <label for="value">Transaction Value (Wei):</label><br>
+        <input type="text" id="value" name="value" required><br><br>
+        
+        <label for="gas">Gas:</label><br>
+        <input type="text" id="gas" name="gas" required><br><br>
+        
+        <label for="gasPrice">Gas Price:</label><br>
+        <input type="text" id="gasPrice" name="gasPrice" required><br><br>
+        
+        <label for="from">From Address:</label><br>
+        <input type="text" id="from" name="from" required><br><br>
+        
+        <label for="to">To Address:</label><br>
+        <input type="text" id="to" name="to" required><br><br>
+
+        <input type="submit" value="Check Fraud">
+    </form>
+
+    {% if prediction %}
+    <h2>Prediction Result: {{ prediction }}</h2>
+    {% endif %}
+
+</body>
+</html>
